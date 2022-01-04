@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/Button";
 
 /**
  * ## Reusable components
@@ -7,8 +8,16 @@ import React from "react";
  * 3. Make a reusable Checkbox component
  * 4. Make a reusable List and ListItem component
  */
+
 const Exercise = () => {
-	return <h1>Exercise 2.5</h1>;
+	return (
+		<div>
+		<Button className={"irgendwas"} aria-label={"blau"}>
+			Click me!
+		</Button>
+		{React.createElement(Button, { className: "Hallo", "aria-label": "miez"}, "rot")}
+	</div>
+			);
 };
 
 export default Exercise;

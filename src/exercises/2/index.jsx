@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./card";
-/**
+/*
+*
  * ## Cards
  * 1. Reuse the card from the previous exercise
  * - Create a reusable component with these properties:
@@ -10,7 +11,7 @@ import Card from "./card";
  *
  * 2. Create a Responsive Grid with 5 cards
  * - ! Make sure that there are no errors about the `key` property in the web-console
- */
+*/
 
 const items = Array.from({ length: 5 }, () => {
 	return {
