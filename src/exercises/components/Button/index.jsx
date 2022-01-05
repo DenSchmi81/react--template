@@ -1,7 +1,5 @@
 import React from "react";
-import styles from "./styles.modules.css"
-
-//Create a React component
+import styles from "./styles.module.css"
 
 const Button = ({children, className, ...props}) => {
 	return (
