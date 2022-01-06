@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import X, {useMietzekatze} from "./test.js"
+console.log(X, useMietzekatze)
 
 /**
  * ## Destructuring
@@ -43,7 +45,7 @@ const HTMLOutput = ({ outerRef }) => {
  */
 const ComponentA = (props) => {
 	return <Code code={props} />;
-};
+		};
 
 /**
  * This Component uses object destructuring. It only outputs the "rest"
@@ -65,11 +67,16 @@ const ComponentC = (props) => {
 		</div>
 	);
 };
-
+const A = {age: 20, name: "Dennis"};
+const B = {A}
+const C = {...A}
+console.log(A)
+console.log(B)
+console.log(C)
 /**
  * This Component picks "color" and adds it to the style attribute
  */
-const ComponentD = ({ color, style = {}, ...rest }) => {
+const ComponentD = ({ color, style = {backgroundColor: "orange"}, ...rest }) => {
 	const ref = useRef(null);
 	return (
 		<div>
@@ -83,12 +90,12 @@ const ComponentD = ({ color, style = {}, ...rest }) => {
  * This Component picks "color" and "background" and adds it tho the style attribute
  * The output only shows the "style" attribute
  */
-const ComponentE = (props) => {
+const ComponentE = ({color, background, style, ...rest}) => {
 	const ref = useRef(null);
 	return (
 		<div>
-			<div ref={ref} {...props}>
-				I should be {props.color} with a {props.background} background
+			<div ref={ref} {...rest} style={{...style, color, background }}>
+				I should be {color} with a {background} background
 			</div>
 			<HTMLOutput outerRef={ref} />
 		</div>
@@ -100,13 +107,13 @@ const ComponentE = (props) => {
  * This Component picks "title" and adds it to an "h3"
  * The output does not have any attributes
  */
-const ComponentF = (props) => {
+const ComponentF = ({src, alt, title, ...rest}) => {
 	const ref = useRef(null);
 	return (
 		<div>
-			<div ref={ref} {...props}>
-				<img />
-				<h3 />
+			<div ref={ref} {...rest}>
+				<img src={src} alt={alt} />
+				<h3>Moin, wie geht es denn so?</h3>
 			</div>
 			<HTMLOutput outerRef={ref} />
 		</div>
@@ -121,6 +128,13 @@ const Exercise = () => {
 			<p>All properties are passed on</p>
 			<ComponentA foo="foo" bar={`BA${"r".toUpperCase()}`} />
 			<ComponentA age={26} name={{ first: "Max", last: "Harrington" }} />
+			<ComponentA gender="diverse" />
+			<ComponentA person="Marry Poppins"/>
+			<ComponentA animal="Cat"/>
+			<ComponentA person="Marry Poppins"/>
+			<ComponentA object="TARDIS (bigger from the inside)" color={"blue"}/>
+
+
 			<h2>ComponentB</h2>
 			<p>
 				Some properties were removed by{" "}
@@ -147,6 +161,7 @@ const Exercise = () => {
 			<h2>ComponentD</h2>
 			<p>Color is removed and added to style</p>
 			<ComponentD color="red" foo="foo" bar="bar" />
+			<ComponentD color="red" style={{gridTemplateColumns: "10px"}} />
 			<h2>ComponentE</h2>
 			<ComponentE color="red" background="yellow" />
 			<h2>ComponentF</h2>
