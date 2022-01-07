@@ -1,11 +1,12 @@
 import React from "react";
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
-const ListItem = ({children, className, ...props}) => {
+const ListItem = ({ children, className, ...rest }) => {
 	return (
-		<ul className={[styles.ListItem, className].join(" ")}>
+		<li {...rest} className={[styles.ListItem, className].join(" ")}>
 			{children}
-		</ul>
-	)
-}
+		</li>
+	);
+};
+
 export default ListItem;

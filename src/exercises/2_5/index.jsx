@@ -1,20 +1,9 @@
 import React from "react";
-
-/**
+import Typography from "../components/Typography";
 import Button from "../components/Button";
-import Headline from "../components/Typography";
 import List from "../components/List";
-import ListItem from "../components/List";
-import CustomCheckbox from "../components/Checkbox";
-*/
-
-const Button = ({ children, className, ...rest }) => {
-	return (
-		<button {...rest} className={["internal-classname", className].join(" ")}>
-			{children}
-		</button>
-	);
-};
+import ListItem from "../components/ListItem";
+import Checkbox from "../components/Checkbox";
 
 /**
  * ## Reusable components
@@ -27,10 +16,18 @@ const Button = ({ children, className, ...rest }) => {
 const Exercise = () => {
 	return (
 		<div>
+			<br />
+			<br />
+			<Checkbox
+				label="Yes"
+				onChange={(event_) => {
+					console.log(event_.target.checked);
+				}}
+			/>
 			<Button
-				className="custom-button foo bar"
+				className="custom-button"
 				onClick={() => {
-					console.log("Custom button");
+					console.log("Custom Button");
 				}}
 			>
 				Please click me
@@ -38,12 +35,24 @@ const Exercise = () => {
 			<br />
 			<button
 				className="native-button"
-				onclick={() => {
-					console.log("Native button");
+				onClick={() => {
+					console.log("Native Button");
 				}}
 			>
 				I am native
 			</button>
+
+			<List variant="ul">
+				<ListItem>Item 1</ListItem>
+				<ListItem>Item 2</ListItem>
+				<ListItem>Item 3</ListItem>
+			</List>
+
+			<List variant="ol">
+				<ListItem>Item 1</ListItem>
+				<ListItem>Item 2</ListItem>
+				<ListItem>Item 3</ListItem>
+			</List>
 		</div>
 	);
 };

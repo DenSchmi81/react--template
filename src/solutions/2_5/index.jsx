@@ -171,9 +171,9 @@ const Exercise = () => {
 						<ListItem marker="✅">Item 6.4</ListItem>
 					</List>
 				</ListItem>
-				<ListItem marker="💖">Item 7</ListItem>
-				<ListItem marker="💖">Item 8</ListItem>
-				<ListItem marker="💖">Item 9</ListItem>
+				<ListItem marker="🤬">Item 7</ListItem>
+				<ListItem marker="💩">Item 8</ListItem>
+				<ListItem marker="☠">Item 9</ListItem>
 				<ListItem marker="💖">Item 10</ListItem>
 			</List>
 		</div>
